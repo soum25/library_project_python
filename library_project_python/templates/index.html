@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+
+<body>
+    <h1> <u> Welcome to Vafemoh's Library </u> </h1>
+    <ul>
+        {% for book in books %}
+        <li>
+
+            <a href="{{ url_for('delete_item', book_id=book.id ) }}"> Delete :</a>
+            {{book.title}} - {{book.author}} - {{book.rating}}/10
+            <a href="{{ url_for('rating_to_edit', book_id=book.id ) }}">: Edit rating</a>
+
+        </li>
+        {% endfor %}
+    </ul>
+
+
+    <a href="{{url_for('add')}}">Add New Book</a>
+</body>
+
+</html>
